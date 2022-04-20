@@ -13,7 +13,6 @@ void duplicates(int a[],int n)
     else cout<<"NO\n";
 }
 int partition(int[],int,int);
-void swap(int *,int *);
 void quicksort(int a[],int l,int r)
 {
     if(l<r)
@@ -32,17 +31,11 @@ int partition(int a[],int l,int r)
         if(a[j]<pivot)
         {
             i++;
-           swap(&a[i],&a[j]);
+           swap(a[i],a[j]);
         }
     }
-    swap(&a[i+1],&a[r]);
+    swap(a[i+1],a[r]);
     return (i+1);
-}
-void swap(int *a,int *b)
-{
-    int t= *a;
-    *a = *b;
-    *b = t;
 }
 int main()
 {
