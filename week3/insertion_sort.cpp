@@ -7,22 +7,23 @@ void insertion_sort(int a[],int n,int &cmp,int &shifts)
     {
         temp = a[i];
         j=i-1;
+        ++cmp;
         while(j>=0 && a[j]>temp)
         {
             a[j+1] = a[j];
             j--;
-            ++cmp;
             ++shifts;
         }
         a[j+1] = temp;
-        ++shifts;
+        
       
     }
 }
-void print (int a[],int n,int c,int shifts)
+void print (int a[],int n,int&c,int&shifts)
 {
     for(int i=0;i<n;i++)
     cout<<a[i]<<" ";
+    cout<<endl;
     cout<<"Comparisons: "<<c<<endl;
     cout<<"Shifts "<<shifts<<endl;
     cout<<endl;
