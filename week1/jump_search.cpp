@@ -1,48 +1,49 @@
 #include<iostream>
-#include<math.h>
 using namespace std;
-int jumpsearch(int a[],int key,int size)
+int Jump_Search(int *a,int n, int key)
 {
-    int c=1,i;
-    int start=0;
-    int end= ceil(sqrt(size));
-    while(a[end]<=key && end<size)
-    {
-        start=end;
-        end+=ceil(sqrt(size));
-        ++c;
-        if(end>size-1)
-        end=size;
-    }
-    for( i=start;i<end;i++)
-    {
-        if(a[i]==key)
-        {
-        return c;
-        break;
+    int jmp = 1,flag = 0,comp=0;
+       while(jmp<n)
+    {   
+        if(a[jmp]==key)
+        {   
+            comp++;
+            flag = 1;
         }
-    
+        else if(a[jmp]>key)
+        {   
+            for(int i=jmp/2;i<jmp;i++)
+            {
+                if(a[i]==key)
+                    flag = 1;
+            }
+        }
+       jmp = jmp*2;
     }
-    if(a[i]!=key)
+
+    if(flag == 1)
     {
-        return end+1;
+        cout<<"Present"<<endl;
     }
-    
+    else
+    cout<<"Not Present"<<endl;  
 }
+
 int main()
 {
-    int t,key,size,a[10000];
+    int t;
     cin>>t;
-    while(t--){
-    cin>>size;
-    int m = sqrt(size);
-    for(int i=0;i<size;i++)
-    cin>>a[i];
-    cin>>key;
-    int index = jumpsearch(a,key,size);
-    if(index==m+1)
-    cout<<"Not present "<<index<<endl;
-    else
-    cout<<"Present "<<index<<endl;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+         int *a =  new int [n];
+        for(int i=0;i<n;i++)
+        {
+            cin>>a[i];
+        }
+        int key;
+        cin>>key;
+         Jump_Search(a,n,key);
     }
 }
