@@ -6,9 +6,9 @@ void selection_sort(int a[],int n,int &cmp,int &swap)
     for(i=0;i<n-1;i++)
     {
         min = i;
+        ++cmp;
         for(j=i+1;j<n;j++)
         {
-            ++cmp;
             if(a[j] < a[min])
             {
               min = j; }
@@ -22,10 +22,11 @@ void selection_sort(int a[],int n,int &cmp,int &swap)
        
     }
 }
-void print (int a[],int n,int c,int s)
+void print (int a[],int n,int&c,int&s)
 {
     for(int i=0;i<n;i++)
     cout<<a[i]<<" ";
+    cout<<endl;
     cout<<"Comparisons: "<<c<<endl;
     cout<<"Swaps: "<<s<<endl;
     cout<<endl;
