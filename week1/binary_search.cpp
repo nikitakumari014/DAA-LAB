@@ -15,7 +15,9 @@ int binary_search(int a[],int i,int j ,int key)
 }
 int main()
 {
-  int i,n,key,v,a[100];
+  int i,n,t,key,v,a[100];
+  cin>>t;
+  while(t--){
   cin>>n;
   for(i=0;i<n;i++)
   cin>>a[i];
@@ -24,4 +26,5 @@ int main()
   if(v==-1)
   cout<<"Not Present "<<n<<endl;
   else cout<<"Present "<<v<<endl;
+  }
 }
